@@ -4,7 +4,7 @@ import resultsLogo from "../images/undraw_winners_ao2o 2.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuestion, tryAgain } from "../features/questionSlice";
 import { Link } from "react-router-dom";
-import { getAll } from "../utils/helpers";
+import { getCountriesProperties } from "../utils/helpers";
 
 const ResultsCard = () => {
   const dispatch = useDispatch();
@@ -12,9 +12,9 @@ const ResultsCard = () => {
     (store) => store.questions
   );
 
-  const capitals = getAll(countriesAndCapitals, "capital");
-  const flags = getAll(countriesAndCapitals, "flags");
-  const countries = getAll(countriesAndCapitals, "name");
+  const capitals = getCountriesProperties(countriesAndCapitals, "capital");
+  const flags = getCountriesProperties(countriesAndCapitals, "flags");
+  const countries = getCountriesProperties(countriesAndCapitals, "name");
 
   return (
     <Wrapper>

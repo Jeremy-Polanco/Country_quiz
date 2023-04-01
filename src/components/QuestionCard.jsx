@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { getQuestion } from "../features/questionSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaRegCheckCircle, FaRegTimesCircle } from "react-icons/fa";
-import { getAll } from "../utils/helpers";
+import { getCountriesProperties } from "../utils/helpers";
 import quizLogo from "../images/undraw_adventure_4hum 1.svg";
 import { Answers } from "./index";
 import { Link } from "react-router-dom";
@@ -24,9 +24,9 @@ const QuestionCard = () => {
     dispatch(getQuestion([capitals, flags, countries]));
   }, []);
 
-  const flags = getAll(countriesAndCapitals, "flags");
-  const capitals = getAll(countriesAndCapitals, "capital");
-  const countries = getAll(countriesAndCapitals, "name");
+  const flags = getCountriesProperties(countriesAndCapitals, "flags");
+  const capitals = getCountriesProperties(countriesAndCapitals, "capital");
+  const countries = getCountriesProperties(countriesAndCapitals, "name");
 
   return (
     <Wrapper>
